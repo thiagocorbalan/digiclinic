@@ -1,6 +1,8 @@
 const http = require("http");
 
-const port = 8080;
+const PORT = process.env.PORT;
+
+console.log(PORT)
 
 const server = http.createServer((req, res) => {
 	if (req.url === '/home') {
@@ -24,4 +26,4 @@ const server = http.createServer((req, res) => {
 	}
 })
 
-server.listen(port, () => console.log(`Server is runing in port ${port}`));
+server.listen(PORT, () => console.log(`Server is runing in port ${PORT}`));
