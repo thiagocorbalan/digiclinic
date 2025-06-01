@@ -5,6 +5,8 @@ const UserModel = require("./../models/user.model");
 const app = express();
 
 app.use(express.json());
+app.set("view engine", 'ejs');
+app.set('views', "./src/views");
 
 app.get("/users", async (req, res) => {
 	try {
@@ -16,6 +18,11 @@ app.get("/users", async (req, res) => {
 	}
 });
 
+app.get('/view/users', async (req, res) => {
+	const users = await UserModel.find({});
+
+	res.render('index', { users });
+})
 
 app.get("/users/:id", async (req, res) => {
 	try {
