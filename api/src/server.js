@@ -1,9 +1,6 @@
 require("dotenv").config();
-const { Person } = require("./person");
+const connectToDatabase = require("./database/connect");
 
-// require("./modules/path");
-// require("./modules/http");
+connectToDatabase();
+
 require("./modules/express");
-
-const person = new Person('Thithi');
-// console.log(person.sayMyName());
